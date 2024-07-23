@@ -31,7 +31,7 @@ const PaymentPage: React.FC<PaymentPageProps> = () => {
                 <nav className="ml-auto flex items-center gap-4 sm:gap-2">
                     <Link
                         href="#"
-                        className="hidden items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground sm:flex"
+                        className="hidden text-white items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground sm:flex"
                         prefetch={false}
                     >
                         <HomeIcon className="h-5 w-5" />
@@ -39,7 +39,7 @@ const PaymentPage: React.FC<PaymentPageProps> = () => {
                     </Link>
                     <Link
                         href="#"
-                        className="hidden items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground sm:flex"
+                        className="hidden text-white items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground sm:flex"
                         prefetch={false}
                     >
                         <CompassIcon className="h-5 w-5" />
@@ -47,7 +47,7 @@ const PaymentPage: React.FC<PaymentPageProps> = () => {
                     </Link>
                     <Link
                         href="#"
-                        className="hidden items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground sm:flex"
+                        className="hidden text-white items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground sm:flex"
                         prefetch={false}
                     >
                         <MessageCircleIcon className="h-5 w-5" />
@@ -55,7 +55,7 @@ const PaymentPage: React.FC<PaymentPageProps> = () => {
                     </Link>
                     <Link
                         href="#"
-                        className="hidden items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground sm:flex"
+                        className="hidden text-white items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground sm:flex"
                         prefetch={false}
                     >
                         <UsersIcon className="h-5 w-5" />
@@ -63,7 +63,7 @@ const PaymentPage: React.FC<PaymentPageProps> = () => {
                     </Link>
                     <Link
                         href="#"
-                        className="hidden items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground sm:flex"
+                        className="hidden text-white items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground sm:flex"
                         prefetch={false}
                     >
                         <BriefcaseIcon className="h-5 w-5" />

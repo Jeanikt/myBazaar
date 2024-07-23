@@ -1,118 +1,195 @@
-import { Link, Head } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 import { Button } from "@/shadcn/ui/button";
-import React from 'react';
+import { Card, CardHeader, CardTitle, CardContent } from "@/shadcn/ui/card";
 
-const Welcome: React.FC = () => {
+export default function Welcome() {
     return (
-        <>
-            <Head title="Welcome" />
-            <div className="flex flex-col min-h-screen">
-                <header className="w-full flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 bg-emerald-700 relative">
-                    <div className="absolute right-4">
-                        <Link href="/login">
-                            <Button className="bg-gray-50 text-md font-semibold text-emerald-500 hover:bg-gray-200">
-                                Login
+        <div className="min-h-screen bg-[#0A0A0A] text-white">
+            <header className="container mx-auto max-w-screen-xl flex items-center justify-between h-[8vh] p-6 border-b border-muted md:px-12">
+                <a className="hover:opacity-60" href="/">
+                    <p>MyBazar</p>
+                </a>
+                <div className="md:hidden flex flex-row space-x-4">
+                    <Link href="/auth">
+                        <Button className="inline-flex items-center justify-center bg-[#0A0A0A] rounded-md text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 text-white underline-offset-4 hover:underline hover:bg-[#0A0A0A] h-10 px-4 py-2">
+                            Sign In
+                        </Button>
+                    </Link>
+                    <Link href="/auth">
+                        <Button className="inline-flex items-center justify-center text-sm font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-black hover:bg-gray-200 h-10 px-4 py-2 rounded-full">
+                            Get Started
+                        </Button>
+                    </Link>
+                </div>
+
+                <div className="md:flex hidden flex-1">
+                    <nav
+                        className="!space-x-8 flex items-center opacity-80 flex-1 ml-8"
+                        id="mobile-menu"
+                    >
+                        <Link
+                            className="text-sm font-semibold hover:brightness-125"
+                            href="/blog"
+                        >
+                            Blog
+                        </Link>
+                        <Link
+                            className="text-sm font-semibold hover:brightness-125"
+                            href="/pricing"
+                        >
+                            Pricing
+                        </Link>
+                        <Link
+                            className="text-sm font-semibold hover:brightness-125"
+                            href="/changelog"
+                        >
+                            Changelog
+                        </Link>
+                        <Link
+                            className="text-sm font-semibold hover:brightness-125"
+                            href="https://docs.notifylog.co"
+                        >
+                            Docs
+                        </Link>
+                    </nav>
+                    <div className="flex items-center !space-x-4">
+                        <Link href="/auth">
+                            <Button className="inline-flex items-center justify-center bg-[#0A0A0A] rounded-md text-sm font-semibold  disabled:pointer-events-none disabled:opacity-50 text-white  underline-offset-4 hover:underline hover:bg-[#0A0A0A] !mx-0 !mh-0 !p-0 h-10 px-4 py-2">
+                                Sign In
                             </Button>
                         </Link>
-                    </div>
-                    <div className="flex-1 flex justify-center items-center">
-                        <ShoppingBasketIcon className="h-12 w-12 text-primary" />
-                        <span className="ml-2 text-4xl font-bold text-gray-100">
-                            myBazaar
-                        </span>
-                    </div>
-                </header>
-                <div className="flex-grow flex flex-col items-center justify-center w-full bg-emerald-700">
-                    <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
-                        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-                            <div className="rounded-2xl bg-background p-6 shadow-xl flex flex-col justify-between">
-                                <div>
-                                    <BriefcaseIcon className="h-16 w-16 text-primary mb-4" />
-                                    <h2 className="text-2xl font-bold text-center">
-                                        Create Your Virtual Bazaar
-                                    </h2>
-                                    <p className="mt-4 text-muted-foreground text-center">
-                                        Build your own virtual marketplace and
-                                        connect with like-minded individuals.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="rounded-2xl bg-background p-6 shadow-xl flex flex-col justify-between">
-                                <div>
-                                    <GroupIcon className="h-16 w-16 text-primary mb-4" />
-                                    <h2 className="text-2xl font-bold text-center">
-                                        Join Communities
-                                    </h2>
-                                    <p className="mt-4 text-muted-foreground text-center">
-                                        Participate in communities based on
-                                        mutual interests or proximity.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="rounded-2xl bg-background p-6 shadow-xl flex flex-col justify-between">
-                                <div>
-                                    <WebcamIcon className="h-16 w-16 text-primary mb-4" />
-                                    <h2 className="text-2xl font-bold text-center">
-                                        Chat and Engage
-                                    </h2>
-                                    <p className="mt-4 text-muted-foreground text-center">
-                                        Connect with other users, participate in
-                                        discussions, and discover new
-                                        opportunities.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="rounded-2xl bg-background p-6 shadow-xl flex flex-col justify-between">
-                                <div>
-                                    <UsersIcon className="h-16 w-16 text-primary mb-4" />
-                                    <h2 className="text-2xl font-bold text-center">
-                                        Friends and Connections
-                                    </h2>
-                                    <p className="mt-4 text-muted-foreground text-center">
-                                        Expand your network, connect with
-                                        like-minded individuals, and build
-                                        lasting relationships.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="mt-8 text-center">
-                            <h3 className="text-3xl font-bold text-gray-300">
-                                Discover, Connect, and Thrive on myBazaar
-                            </h3>
-                            <p className="mt-4 text-gray-200">
-                                Your one-stop destination for building a vibrant
-                                virtual community.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="mt-6 flex justify-center">
-                        <Link href="/register">
-                            <Button className="rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white shadow-md transition-colors hover:bg-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500">
+                        <Link href="/auth">
+                            <Button className="inline-flex items-center justify-center text-sm font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-black hover:bg-gray-200 h-10 px-4 py-2 rounded-full">
                                 Get Started
                             </Button>
                         </Link>
                     </div>
                 </div>
-                <footer className="w-full bg-background p-4 text-center text-muted-foreground">
-                    <p>&copy; 2024 myBazaar.</p>
-                    <p>
-                        <a
-                            href="https://www.gpstech.com.br"
-                            className="hover:text-emerald-400"
-                            target="__blank"
-                        >
-                            GpsTech
-                        </a>
-                        . All rights reserved.
-                    </p>
-                </footer>
-            </div>
-        </>
+            </header>
+            <main className="relative flex flex-col items-center justify-center flex-1 text-center p-6 md:px-12">
+                <div className="absolute inset-0 z-0 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A] via-[#333333] to-[#0A0A0A] opacity-40 blur-md"></div>
+                    <div
+                        className="absolute inset-0 bg-[#0A0A0A] rounded-xl"
+                        style={{
+                            maskImage:
+                                "radial-gradient(circle, transparent 30%, rgba(0,0,0,0.6) 80%)",
+                        }}
+                    ></div>
+                </div>
+
+                {/* Conteúdo principal */}
+                <Button
+                    variant="outline"
+                    className="relative mb-8 text-white mt-8 border-[#DCDCDC] bg-[#0A0A0A] rounded-2xl p-5 z-10"
+                >
+                    Discover What's New on myBazar
+                </Button>
+                <h1 className="relative font-ui-sans-serif font-bold mb-6 text-[60px] leading-[67.2px] text-[#FAFAFA] md:text-6xl z-10">
+                    Welcome To MyBazar!
+                </h1>
+                <p className="relative font-ui-sans-serif font-normal text-[20px] leading-[30px] text-[#fafafacc] mb-8 md:text-xl z-10">
+                    Discover a vibrant marketplace where you can buy and sell
+                    unique bazaar treasures! <br /> Whether you're looking for
+                    vintage clothing, handmade crafts, or rare collectibles,{" "}
+                    <br /> myBazar is the perfect place to find it all.
+                </p>
+                <div className="relative flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 z-10">
+                    <Button className="relative bg-black/30 border border-gray-600 p-8 hover:bg-[#0A0A0A] backdrop-blur-xl text-white flex items-center justify-center text-sm font-semibold hover:brightness-150 transition ease-in-out rounded-2xl px-4 py-2">
+                        Create Your Own Bazaar
+                    </Button>
+                    <Link
+                        href="#"
+                        className="relative backdrop-blur-xl text-white flex items-center justify-center text-sm font-semibold hover:brightness-150 transition ease-in-out rounded-2xl px-4 py-2"
+                    >
+                        Join a Community &gt;
+                    </Link>
+                </div>
+            </main>
+
+            <section className="p-6 md:px-12">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <Card className="bg-[#1a1a1a] text-white hover:scale-105 transition-transform duration-300">
+                        <CardHeader className="flex items-center justify-between">
+                            <CardTitle className="text-lg">Events</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-4">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-sm text-muted-foreground">
+                                            sales
+                                        </p>
+                                        <p className="text-lg font-bold">
+                                            Purchase Approved
+                                        </p>
+                                        <p className="text-sm text-muted-foreground">
+                                            today at 9:07 AM
+                                        </p>
+                                    </div>
+                                    <CheckIcon className="text-green-500 w-6 h-6" />
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-sm text-muted-foreground">
+                                            sales
+                                        </p>
+                                        <p className="text-lg font-bold">
+                                            Chargeback on Purchase
+                                        </p>
+                                        <p className="text-sm text-muted-foreground">
+                                            today at 9:07 AM
+                                        </p>
+                                    </div>
+                                    <CircleAlertIcon className="text-yellow-500 w-6 h-6" />
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    <Card className="bg-[#1a1a1a] text-white hover:scale-105 transition-transform duration-300">
+                        <CardHeader className="flex items-center justify-between">
+                            <CardTitle className="text-lg">Details</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-4">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-sm text-muted-foreground">
+                                            purchase-approved
+                                        </p>
+                                        <p className="text-lg font-bold">
+                                            hotmart
+                                        </p>
+                                        <p className="text-sm text-muted-foreground">
+                                            Jan 21, 2024
+                                        </p>
+                                    </div>
+                                    <CheckIcon className="text-green-500 w-6 h-6" />
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-sm text-muted-foreground">
+                                            identity
+                                        </p>
+                                        <p className="text-lg font-bold">
+                                            testeComprador2110
+                                        </p>
+                                        <p className="text-sm text-muted-foreground">
+                                            postman15@example.com
+                                        </p>
+                                    </div>
+                                    <UserIcon className="text-blue-500 w-6 h-6" />
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </section>
+        </div>
     );
 }
 
-const BriefcaseIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+function CheckIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
@@ -126,13 +203,12 @@ const BriefcaseIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
             strokeLinecap="round"
             strokeLinejoin="round"
         >
-            <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-            <rect width="20" height="14" x="2" y="6" rx="2" />
+            <path d="M20 6 9 17l-5-5" />
         </svg>
     );
 }
 
-const GroupIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+function CircleAlertIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
@@ -146,42 +222,14 @@ const GroupIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
             strokeLinecap="round"
             strokeLinejoin="round"
         >
-            <path d="M3 7V5c0-1.1.9-2 2-2h2" />
-            <path d="M17 3h2c1.1 0 2 .9 2 2v2" />
-            <path d="M21 17v2c0 1.1-.9 2-2 2h-2" />
-            <path d="M7 21H5c-1.1 0-2-.9-2-2v-2" />
-            <rect width="7" height="5" x="7" y="7" rx="1" />
-            <rect width="7" height="5" x="10" y="12" rx="1" />
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" x2="12" y1="8" y2="12" />
+            <line x1="12" x2="12.01" y1="16" y2="16" />
         </svg>
     );
 }
 
-const ShoppingBasketIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="m15 11-1 9" />
-            <path d="m19 11-4-7" />
-            <path d="M2 11h20" />
-            <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4" />
-            <path d="M4.5 15.5h15" />
-            <path d="m5 11 4-7" />
-            <path d="m9 11 1 9" />
-        </svg>
-    );
-}
-
-const UsersIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+function UserIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
@@ -195,37 +243,13 @@ const UsersIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
             strokeLinecap="round"
             strokeLinejoin="round"
         >
-            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-            <circle cx="9" cy="7" r="4" />
-            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
         </svg>
     );
 }
 
-const WebcamIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <circle cx="12" cy="10" r="8" />
-            <circle cx="12" cy="10" r="3" />
-            <path d="M7 22h10" />
-            <path d="M12 22v-4" />
-        </svg>
-    );
-};
-
-const XIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+function XIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
@@ -243,8 +267,5 @@ const XIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
             <path d="m6 6 12 12" />
         </svg>
     );
-};
-
-export { XIcon };
-export default Welcome;
+}
 
