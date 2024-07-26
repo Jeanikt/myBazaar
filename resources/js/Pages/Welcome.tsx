@@ -1,10 +1,12 @@
 import { Link } from "@inertiajs/react";
 import { Button } from "@/shadcn/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/shadcn/ui/card";
+import { Head } from "@inertiajs/react";
 
 export default function Welcome() {
     return (
         <div className="min-h-screen bg-[#0A0A0A] text-white">
+            <Head title="Welcome" />
             <header className="container mx-auto max-w-screen-xl flex items-center justify-between h-[8vh] p-6 border-b border-muted md:px-12">
                 <a className="hover:opacity-60" href="/">
                     <p>MyBazar</p>
@@ -45,20 +47,14 @@ export default function Welcome() {
                         >
                             Changelog
                         </Link>
-                        <Link
-                            className="text-sm font-semibold hover:brightness-125"
-                            href="https://docs.notifylog.co"
-                        >
-                            Docs
-                        </Link>
                     </nav>
                     <div className="flex items-center !space-x-4">
-                        <Link href="/auth">
-                            <Button className="inline-flex items-center justify-center bg-[#0A0A0A] rounded-md text-sm font-semibold  disabled:pointer-events-none disabled:opacity-50 text-white  underline-offset-4 hover:underline hover:bg-[#0A0A0A] !mx-0 !mh-0 !p-0 h-10 px-4 py-2">
+                        <Link href="/login">
+                            <Button className="inline-flex items-center justify-center bg-[#0A0A0A] rounded-md text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 text-white underline-offset-4 hover:underline hover:bg-[#0A0A0A] !mx-0 !mh-0 !p-0 h-10 px-4 py-2">
                                 Sign In
                             </Button>
                         </Link>
-                        <Link href="/auth">
+                        <Link href="/register">
                             <Button className="inline-flex items-center justify-center text-sm font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-black hover:bg-gray-200 h-10 px-4 py-2 rounded-full">
                                 Get Started
                             </Button>
@@ -66,9 +62,10 @@ export default function Welcome() {
                     </div>
                 </div>
             </header>
+
             <main className="relative flex flex-col items-center justify-center flex-1 text-center p-6 md:px-12">
                 <div className="absolute inset-0 z-0 flex items-center justify-center">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A] via-[#333333] to-[#0A0A0A] opacity-40 blur-md"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A] via-[#333333] to-[#0A0A0A] opacity-30 blur-md"></div>
                     <div
                         className="absolute inset-0 bg-[#0A0A0A] rounded-xl"
                         style={{
@@ -77,25 +74,26 @@ export default function Welcome() {
                         }}
                     ></div>
                 </div>
-
-                {/* Conteúdo principal */}
-                <Button
-                    variant="outline"
-                    className="relative mb-8 text-white mt-8 border-[#DCDCDC] bg-[#0A0A0A] rounded-2xl p-5 z-10"
-                >
-                    Discover What's New on myBazar
-                </Button>
-                <h1 className="relative font-ui-sans-serif font-bold mb-6 text-[60px] leading-[67.2px] text-[#FAFAFA] md:text-6xl z-10">
-                    Welcome To MyBazar!
+                <Link href="/news">
+                    <Button
+                        variant="outline"
+                        className="relative mb-8 text-white mt-16 border-[#DCDCDC] bg-[#0A0A0A] rounded-2xl p-5 z-10"
+                    >
+                        Discover What's New on myBazar
+                    </Button>
+                </Link>
+                <h1 className="relative font-ui-sans-serif font-bold mb-6 text-[60px] leading-[67.2px] text-[#FAFAFA] md:text-7xl z-10">
+                    Welcome To <a className="text-emerald-500">MyBazar!</a>
                 </h1>
                 <p className="relative font-ui-sans-serif font-normal text-[20px] leading-[30px] text-[#fafafacc] mb-8 md:text-xl z-10">
                     Discover a vibrant marketplace where you can buy and sell
-                    unique bazaar treasures! <br /> Whether you're looking for
-                    vintage clothing, handmade crafts, or rare collectibles,{" "}
+                    unique bazaar treasures!
+                    <br /> Whether you're looking for vintage clothing, handmade
+                    crafts, or rare collectibles,
                     <br /> myBazar is the perfect place to find it all.
                 </p>
                 <div className="relative flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 z-10">
-                    <Button className="relative bg-black/30 border border-gray-600 p-8 hover:bg-[#0A0A0A] backdrop-blur-xl text-white flex items-center justify-center text-sm font-semibold hover:brightness-150 transition ease-in-out rounded-2xl px-4 py-2">
+                    <Button className="relative bg-black/30 border border-gray-600 p-8 hover:bg-[#0A0A0A] hover:border-emerald-500 backdrop-blur-xl text-white flex items-center justify-center text-sm font-semibold hover:brightness-150 transition ease-in-out rounded-2xl px-4 py-2">
                         Create Your Own Bazaar
                     </Button>
                     <Link
@@ -105,9 +103,11 @@ export default function Welcome() {
                         Join a Community &gt;
                     </Link>
                 </div>
+
+                <div className="relative w-full h-px bg-zinc-900 mt-20 z-10"></div>
             </main>
 
-            <section className="p-6 md:px-12">
+            {/* <section className="p-6 md:px-12">
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <Card className="bg-[#1a1a1a] text-white hover:scale-105 transition-transform duration-300">
                         <CardHeader className="flex items-center justify-between">
@@ -181,6 +181,108 @@ export default function Welcome() {
                                     <UserIcon className="text-blue-500 w-6 h-6" />
                                 </div>
                             </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </section> */}
+            <section className="p-8 md:px-72 text-start">
+                <div className="flex flex-col items-center mb-12">
+                    <Button
+                        variant="outline"
+                        className="relative mb-4 text-white border-[#DCDCDC] bg-[#0A0A0A] rounded-2xl px-4 py-2 z-10"
+                    >
+                        Explore More Features
+                    </Button>
+                    <h1 className="relative font-ui-sans-serif font-bold text-[60px] leading-[67.2px] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#959595] md:text-3xl z-10">
+                        Discover the full
+                    </h1>
+                    <h1 className="relative font-ui-sans-serif font-bold text-[60px] leading-[67.2px] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#959595] md:text-3xl z-10">
+                        potential of MyBazar
+                    </h1>
+                </div>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <Card className="bg-[#0A0A0A] text-white border-none">
+                        <CardHeader className="flex items-start justify-between">
+                            <CardTitle className="text-lg text-start">
+                                Centralized Event Management
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-start">
+                            <p>
+                                Consolidate notifications from various sources
+                                into one intuitive dashboard for efficient
+                                tracking and management.
+                            </p>
+                        </CardContent>
+                    </Card>
+                    <Card className="bg-[#0A0A0A] text-white border-none">
+                        <CardHeader className="flex items-start justify-between">
+                            <CardTitle className="text-lg text-start">
+                                Seamless Integration
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-start">
+                            <p>
+                                Connect MyBazar with your existing tools using
+                                webhooks for a smooth, automated workflow and
+                                enhanced operations.
+                            </p>
+                        </CardContent>
+                    </Card>
+                    <Card className="bg-[#0A0A0A] text-white border-none">
+                        <CardHeader className="flex items-start justify-between">
+                            <CardTitle className="text-lg text-start">
+                                Data-Driven Insights
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-start">
+                            <p>
+                                Leverage the power of analytics to make informed
+                                decisions and improve your team's event
+                                management strategies.
+                            </p>
+                        </CardContent>
+                    </Card>
+                    <Card className="bg-[#0A0A0A] text-white border-none">
+                        <CardHeader className="flex items-start justify-between">
+                            <CardTitle className="text-lg text-start">
+                                Developer-Friendly API
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-start">
+                            <p>
+                                Enjoy a streamlined developer experience with
+                                our easy-to-use API, designed for quick
+                                notification creation and management.
+                            </p>
+                        </CardContent>
+                    </Card>
+                    <Card className="bg-[#0A0A0A] text-white border-none">
+                        <CardHeader className="flex items-start justify-between">
+                            <CardTitle className="text-lg text-start">
+                                Multi-Platform Notifications
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-start">
+                            <p>
+                                Extend your reach by sending notifications
+                                through various platforms, including Discord,
+                                Slack, and more, with MyBazar.
+                            </p>
+                        </CardContent>
+                    </Card>
+                    <Card className="bg-[#0A0A0A] text-white border-none">
+                        <CardHeader className="flex items-start justify-between">
+                            <CardTitle className="text-lg text-start">
+                                Customizable Event Properties
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-start">
+                            <p>
+                                Tailor your event tracking with custom
+                                properties, ensuring a rich context for every
+                                notification sent through MyBazar.
+                            </p>
                         </CardContent>
                     </Card>
                 </div>
@@ -268,4 +370,3 @@ function XIcon(props: React.SVGProps<SVGSVGElement>) {
         </svg>
     );
 }
-
